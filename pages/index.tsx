@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Carousel from "../components/Carousel";
+import DescriptionPage from "../components/DescriptionPage";
 import DoctorReviews from "../components/DoctorReviews";
 import IncludedProducts from "../components/IncludedProducts";
 import MeetDoctors from "../components/MeetDoctors";
@@ -12,7 +13,7 @@ import Welcome from "../components/Welcome";
 const Home: NextPage = () => {
   return (
     <Box>
-      <Welcome />
+      {/* <Welcome />
       <Section />
       <Carousel />
       <Plans />
@@ -26,7 +27,8 @@ const Home: NextPage = () => {
       <MeetDoctors />
       <DoctorReviews />
       <DoctorReviews />
-      <DoctorReviews />
+      <DoctorReviews /> */}
+      <DescriptionPage />
     </Box>
   );
 };
