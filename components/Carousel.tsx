@@ -13,9 +13,16 @@ export interface CarouselItemProps {
 }
 
 const CarouselItem: FC<CarouselItemProps> = ({ src }) => (
-  <Box minW="90%" m="10px">
+  <Box minW="90%" m="10px" boxShadow="0 5px 15px #ccc" borderRadius="29px">
     <Box position="relative">
-      <Image borderRadius="29px" src={src} alt="" w="100vw" h="300px" />
+      <Image
+        filter="brightness(50%)"
+        borderRadius="29px"
+        src={src}
+        alt=""
+        w="100vw"
+        h="300px"
+      />
       <Text
         lineHeight={1.2}
         fontSize="24px"
@@ -23,6 +30,7 @@ const CarouselItem: FC<CarouselItemProps> = ({ src }) => (
         bottom="90px"
         left="40px"
         color="white"
+        px="10px"
       >
         Your <b>Performance</b>
       </Text>
@@ -52,7 +60,7 @@ const CarouselItem: FC<CarouselItemProps> = ({ src }) => (
 const Carousel = () => {
   return (
     <Box>
-      <Text textAlign="center" fontSize="24px" m="10px">
+      <Text ml="10px" fontSize="24px" m="10px">
         <b>Real</b> People, <b>Unreal</b> Stories
       </Text>
       <Flex overflow="auto">

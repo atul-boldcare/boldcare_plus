@@ -20,6 +20,9 @@ const Card = () => {
           height="180px"
           alt=""
         />
+        <Box position="absolute" top="10px" right="10px">
+          <Icon as={AiOutlineArrowRight} w={8} h={8} color="white" />
+        </Box>
       </Box>
       <Flex p="10px" flexDir="row" justifyContent="space-between">
         <Text fontWeight="bold">Product Name</Text>
@@ -27,9 +30,9 @@ const Card = () => {
           100
         </Text>
       </Flex>
-      <Box position="absolute" top="10px" right="10px">
-        <Icon as={AiOutlineArrowRight} w={8} h={8} />
-      </Box>
+      <Text p="10px" pt="0">
+        Lorem ipsum dolor sit amet.
+      </Text>
     </Box>
   );
 };

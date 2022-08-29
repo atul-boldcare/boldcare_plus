@@ -30,7 +30,14 @@ const SubSectionText: FC<SubSectionTextProps> = ({
       m="10px"
     >
       <Flex dir="row" alignItems="center" pb="10px">
-        <Text maxW="150px" p="10px" fontSize="24px" color={textColor}>
+        <Text
+          maxW="150px"
+          lineHeight={1}
+          p="10px"
+          fontSize="24px"
+          color={textColor}
+          pr="0"
+        >
           {text}
         </Text>
         <Icon
@@ -38,8 +45,8 @@ const SubSectionText: FC<SubSectionTextProps> = ({
           transform={isActive ? "rotate(90deg)" : "rotate(0)"}
           as={AiOutlineArrowRight}
           color={isActive ? "white" : "black"}
-          w="32px"
-          h="32px"
+          w={10}
+          h={10}
         />
       </Flex>
     </Box>
@@ -47,7 +54,7 @@ const SubSectionText: FC<SubSectionTextProps> = ({
 };
 
 const Section = () => {
-  const [active, setActive] = useState(3);
+  const [active, setActive] = useState(0);
 
   const clickHandler = (index: number) => {
     if (index === 0) setActive(1);
