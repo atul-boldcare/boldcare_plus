@@ -1,13 +1,5 @@
-import {
-  Box,
-  Grid,
-  Flex,
-  Text,
-  BorderProps,
-  Button,
-  TextProps,
-} from "@chakra-ui/react";
-import { FC } from "react";
+import { Box, Grid, Flex, Text, BorderProps, Button } from "@chakra-ui/react";
+import { FC, useState } from "react";
 
 export interface GridItemProps {
   children?: React.ReactNode;
@@ -54,18 +46,43 @@ const PlanPrice = () => (
   </Flex>
 );
 
+const borderProps = {
+  borderColor: "#fff",
+  borderWidth: "2px",
+  borderTopWidth: 0,
+  borderBottomWidth: 0,
+};
+
+const topBorderProps = {
+  borderTopRadius: "20px",
+  borderColor: "#fff",
+  borderWidth: "2px",
+  borderBottomWidth: 0,
+};
+
+const bottomBorderProps = {
+  borderBottomRadius: "20px",
+  borderColor: "#fff",
+  borderWidth: "2px",
+  borderTopWidth: 0,
+};
+
 const Plans = () => {
+  const [activePlan, setActivePlan] = useState<1 | 3 | 6>(1);
   return (
     <Box bg="brown" color="white" p="5px">
       <Grid
-        // gap="2px"
+        gap="1px"
         templateColumns="repeat(4, 1fr)"
         templateRows="repeat(7, 1fr)"
         m="10px"
       >
         {/* Row 1 */}
         <GridItem withBg={false} />
-        <GridItem withBg={false}>
+        <GridItem
+          withBg={false}
+          borderProps={activePlan === 1 ? topBorderProps : {}}
+        >
           <Text
             alignSelf="flex-end"
             textAlign="center"
@@ -77,12 +94,7 @@ const Plans = () => {
         </GridItem>
         <GridItem
           withBg={false}
-          borderProps={{
-            borderTopRadius: "20px",
-            borderColor: "#fff",
-            borderWidth: "2px",
-            borderBottomWidth: 0,
-          }}
+          borderProps={activePlan === 3 ? topBorderProps : {}}
         >
           <Text
             alignSelf="flex-end"
@@ -93,7 +105,10 @@ const Plans = () => {
             3 Month
           </Text>
         </GridItem>
-        <GridItem withBg={false}>
+        <GridItem
+          withBg={false}
+          borderProps={activePlan === 6 ? topBorderProps : {}}
+        >
           <Text
             alignSelf="flex-end"
             textAlign="center"
@@ -108,20 +123,25 @@ const Plans = () => {
         <GridItem withBg={false} isCentered={false}>
           <Text>Expert Consultations</Text>
         </GridItem>
-        <GridItem borderProps={{ borderTopLeftRadius: "30px" }}>
-          <Plan />
-        </GridItem>
         <GridItem
-          borderProps={{
-            borderColor: "#fff",
-            borderWidth: "2px",
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-          }}
+          borderProps={
+            activePlan === 1
+              ? { borderTopLeftRadius: "30px", ...borderProps }
+              : { borderTopLeftRadius: "30px" }
+          }
         >
           <Plan />
         </GridItem>
-        <GridItem borderProps={{ borderTopRightRadius: "30px" }}>
+        <GridItem borderProps={activePlan === 3 ? borderProps : {}}>
+          <Plan />
+        </GridItem>
+        <GridItem
+          borderProps={
+            activePlan === 6
+              ? { borderTopRightRadius: "30px", ...borderProps }
+              : { borderTopRightRadius: "30px" }
+          }
+        >
           <Plan />
         </GridItem>
 
@@ -129,20 +149,13 @@ const Plans = () => {
         <GridItem withBg={false} isCentered={false}>
           <Text>Effective Medications</Text>
         </GridItem>
-        <GridItem>
+        <GridItem borderProps={activePlan === 1 ? borderProps : {}}>
           <Plan />
         </GridItem>
-        <GridItem
-          borderProps={{
-            borderColor: "#fff",
-            borderWidth: "2px",
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-          }}
-        >
+        <GridItem borderProps={activePlan === 3 ? borderProps : {}}>
           <Plan />
         </GridItem>
-        <GridItem>
+        <GridItem borderProps={activePlan === 6 ? borderProps : {}}>
           <Plan />
         </GridItem>
 
@@ -150,20 +163,13 @@ const Plans = () => {
         <GridItem withBg={false} isCentered={false}>
           <Text>Therapy Sessions</Text>
         </GridItem>
-        <GridItem>
+        <GridItem borderProps={activePlan === 1 ? borderProps : {}}>
           <Plan />
         </GridItem>
-        <GridItem
-          borderProps={{
-            borderColor: "#fff",
-            borderWidth: "2px",
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-          }}
-        >
+        <GridItem borderProps={activePlan === 3 ? borderProps : {}}>
           <Plan />
         </GridItem>
-        <GridItem>
+        <GridItem borderProps={activePlan === 6 ? borderProps : {}}>
           <Plan />
         </GridItem>
 
@@ -171,45 +177,54 @@ const Plans = () => {
         <GridItem withBg={false} isCentered={false}>
           <Text>Personal Assistant</Text>
         </GridItem>
-        <GridItem borderProps={{ borderBottomLeftRadius: "30px" }}>
-          <Plan />
-        </GridItem>
         <GridItem
-          borderProps={{
-            borderColor: "#fff",
-            borderWidth: "2px",
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-          }}
+          borderProps={
+            activePlan === 1
+              ? { borderBottomLeftRadius: 0, ...borderProps }
+              : { borderBottomLeftRadius: "30px" }
+          }
         >
           <Plan />
         </GridItem>
-        <GridItem borderProps={{ borderBottomRightRadius: "30px" }}>
+        <GridItem borderProps={activePlan === 3 ? borderProps : {}}>
+          <Plan />
+        </GridItem>
+        <GridItem
+          borderProps={
+            activePlan === 6
+              ? { borderBottomRightRadius: "30px", ...borderProps }
+              : { borderBottomRightRadius: "30px" }
+          }
+        >
           <Plan />
         </GridItem>
 
         {/* Row 6 */}
         <GridItem withBg={false} />
-        <GridItem withBg={false}>
+        <GridItem
+          withBg={false}
+          borderProps={activePlan === 1 ? borderProps : {}}
+        >
           <PlanPrice />
         </GridItem>
         <GridItem
           withBg={false}
-          borderProps={{
-            borderColor: "#fff",
-            borderWidth: "2px",
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-          }}
+          borderProps={activePlan === 3 ? borderProps : {}}
         >
           <PlanPrice />
         </GridItem>
-        <GridItem withBg={false}>
+        <GridItem
+          withBg={false}
+          borderProps={activePlan === 6 ? borderProps : {}}
+        >
           <PlanPrice />
         </GridItem>
         {/* Row 7 */}
         <GridItem withBg={false} />
-        <GridItem withBg={false}>
+        <GridItem
+          withBg={false}
+          borderProps={activePlan === 1 ? bottomBorderProps : {}}
+        >
           <Button
             alignSelf="flex-start"
             flex={1}
@@ -221,12 +236,7 @@ const Plans = () => {
         </GridItem>
         <GridItem
           withBg={false}
-          borderProps={{
-            borderBottomRadius: "20px",
-            borderColor: "#fff",
-            borderWidth: "2px",
-            borderTopWidth: 0,
-          }}
+          borderProps={activePlan === 3 ? bottomBorderProps : {}}
         >
           <Button
             alignSelf="flex-start"
@@ -237,7 +247,10 @@ const Plans = () => {
             BUY
           </Button>
         </GridItem>
-        <GridItem withBg={false}>
+        <GridItem
+          withBg={false}
+          borderProps={activePlan === 6 ? bottomBorderProps : {}}
+        >
           <Button
             alignSelf="flex-start"
             flex={1}

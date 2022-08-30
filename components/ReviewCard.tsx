@@ -3,7 +3,7 @@ import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const ReviewCard = () => (
-  <Box minW="180px" ml="10px">
+  <Box minW="180px" ml="10px" mt="10px">
     <Box position="relative">
       <Image
         w="180px"
