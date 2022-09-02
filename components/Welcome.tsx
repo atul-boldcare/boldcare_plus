@@ -8,7 +8,7 @@ const Welcome = () => {
         Welcome to
       </Text>
       <Text fontWeight="bold" lineHeight={1} fontSize="40px">
-        Bold Care +
+        BoldCare<span style={{ color: "#C28916DE" }}>Pro</span>
       </Text>
     </Box>
   );

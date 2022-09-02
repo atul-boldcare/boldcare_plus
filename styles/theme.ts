@@ -1,4 +1,17 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, ComponentStyleConfig } from "@chakra-ui/react";
+
+const Button: ComponentStyleConfig = {
+  baseStyle: {
+    borderRadius: "20px",
+  },
+  variants: {
+    solidBlack: {
+      color: "#fff",
+      backgroundColor: "#000",
+      _active: { bg: "#000000C2" },
+    },
+  },
+};
 
 export const theme = extendTheme({
   fonts: {
@@ -30,5 +43,8 @@ export const theme = extendTheme({
     button: {
       fontSize: "20px",
     },
+  },
+  components: {
+    Button,
   },
 });

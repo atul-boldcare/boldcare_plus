@@ -16,18 +16,18 @@ export interface PlanContainerProps {
 const PlanDetail: FC<PlanDetailProps> = ({ text }) => (
   <Flex
     flexDir="column"
-    // m="5px"
+    m="5px"
     color="#fff"
-    flexBasis="100px"
-    justifyContent="center"
+    // flexBasis="100px"
   >
     <Image
       src="https://via.placeholder.com/150"
       alt=""
-      w="44px"
-      h="44px"
+      w="45px"
+      h="45px"
       borderRadius="50%"
-      mb="5px"
+      m="5px"
+      ml="0"
     />
     <Text lineHeight={1}>{text}</Text>
   </Flex>
@@ -52,7 +52,7 @@ const PriceContainer = () => (
 const PlanContainer: FC<PlanContainerProps> = ({ borderProps }) => (
   <Flex
     flexBasis="100px"
-    m="2px"
+    m="1px"
     bg="#FFECC7"
     color="#000"
     flexDir="column"
@@ -73,8 +73,8 @@ const PlanDetailContainer = () => (
     <PlanDetail text="Therapist Consultation" />
     <PlanDetail text="Nutrition Session" />
     <PlanDetail text="Products worth" />
-    <PlanDetail />
-    <PlanDetail />
+    {/* <PlanDetail />
+    <PlanDetail /> */}
   </Flex>
 );
 
@@ -87,6 +87,7 @@ const Container: FC<ContainerProps> = ({ month }) => {
         flexDir="column"
         alignItems="center"
         color="#fff"
+        p="5px"
       >
         <Text>{month}</Text>
         <Text>Month</Text>
@@ -112,7 +113,7 @@ const Container: FC<ContainerProps> = ({ month }) => {
         }
       />
       <PriceContainer />
-      <Flex>
+      <Flex justifyContent="flex-end" p="5px">
         <Button borderRadius="23px" flex={1} colorScheme="gray">
           BUY
         </Button>
@@ -125,32 +126,35 @@ const NewPlan = () => {
   const [activePlan, setActivePlan] = useState<1 | 3 | 6>(3);
 
   return (
-    <Box bg="brown" p="10px">
+    <Box bg="brown" px="10px" py="30px">
       <Flex justifyContent="space-around">
         <Box flexBasis="100px">
           <PlanDetailContainer />
         </Box>
         <Box
           flexBasis="100px"
-          border={activePlan === 1 ? "3px solid white" : "none"}
+          border={activePlan === 1 ? "2px solid white" : "none"}
           borderRadius="23px"
           onClick={() => setActivePlan(1)}
+          borderTopWidth="0"
         >
           <Container month={1} />
         </Box>
         <Box
           flexBasis="100px"
-          border={activePlan === 3 ? "3px solid white" : "none"}
+          border={activePlan === 3 ? "2px solid white" : "none"}
           borderRadius="23px"
           onClick={() => setActivePlan(3)}
+          borderTopWidth="0"
         >
           <Container month={3} />
         </Box>
         <Box
           flexBasis="100px"
-          border={activePlan === 6 ? "3px solid white" : "none"}
+          border={activePlan === 6 ? "2px solid white" : "none"}
           borderRadius="23px"
           onClick={() => setActivePlan(6)}
+          borderTopWidth="0"
         >
           <Container month={6} />
         </Box>

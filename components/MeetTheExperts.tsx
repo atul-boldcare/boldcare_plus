@@ -4,7 +4,7 @@ import DoctorReviews from "./DoctorReviews";
 
 const MeetTheExperts = () => {
   return (
-    <Box ml="30px">
+    <Box ml="20px">
       <Text fontSize="24px" fontWeight="bold">
         Meet the experts
       </Text>

@@ -1,6 +1,7 @@
-import { Box, Image, Flex, Text, Icon } from "@chakra-ui/react";
 import { FC } from "react";
+import { Box, Image, Flex, Text, Icon, chakra } from "@chakra-ui/react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import AnimationBox from "./AnimationBox";
 
 const images = [
   "https://wallpaperaccess.com/full/317501.jpg",
@@ -13,46 +14,38 @@ export interface CarouselItemProps {
 }
 
 const CarouselItem: FC<CarouselItemProps> = ({ src }) => (
-  <Box minW="90%" m="10px" boxShadow="0 5px 15px #ccc" borderRadius="29px">
+  <Box
+    minW="90%"
+    my="30px"
+    ml="10px"
+    boxShadow="0 5px 15px #ccc"
+    borderRadius="29px"
+  >
     <Box position="relative">
       <Image
-        filter="brightness(50%)"
+        filter="brightness(70%)"
         borderRadius="29px"
         src={src}
         alt=""
         w="100vw"
         h="300px"
       />
-      <Text
-        lineHeight={1.2}
-        fontSize="24px"
-        position="absolute"
-        bottom="90px"
-        left="40px"
-        color="white"
-        px="10px"
-      >
-        Your <b>Performance</b>
-      </Text>
-      <Box position="absolute" bottom="50px" left="30px">
+      <Box position="absolute" top="55%" left="20px">
+        <Text lineHeight={1.2} fontSize="24px" color="white">
+          Your <br></br> <b>Performance</b>
+        </Text>
         <Flex flexDir="row">
-          <Icon as={AiFillStar} w={10} h={10} color="white" />
-          <Icon as={AiFillStar} w={10} h={10} color="white" />
-          <Icon as={AiFillStar} w={10} h={10} color="white" />
-          <Icon as={AiFillStar} w={10} h={10} color="white" />
-          <Icon as={AiOutlineStar} w={10} h={10} color="white" />
+          <Icon as={AiFillStar} w={8} h={8} color="white" />
+          <Icon as={AiFillStar} w={8} h={8} color="white" />
+          <Icon as={AiFillStar} w={8} h={8} color="white" />
+          <Icon as={AiFillStar} w={8} h={8} color="white" />
+          <Icon as={AiOutlineStar} w={8} h={8} color="white" />
         </Flex>
+        <Text lineHeight={1.1} fontSize="14px" color="white">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos,
+          ea!
+        </Text>
       </Box>
-      <Text
-        lineHeight={1.1}
-        position="absolute"
-        bottom="20px"
-        left="30px"
-        color="white"
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos,
-        ea!
-      </Text>
     </Box>
   </Box>
 );
@@ -61,13 +54,15 @@ const Carousel = () => {
   return (
     <Box>
       <Text ml="10px" fontSize="24px" m="10px">
-        <b>Real</b> People, <b>Unreal</b> Stories
+        <b>Real</b> People, <b>Real</b> Reviews
       </Text>
-      <Flex overflow="auto">
-        <CarouselItem src={images[0]} />
-        <CarouselItem src={images[1]} />
-        <CarouselItem src={images[2]} />
-      </Flex>
+      <AnimationBox>
+        <Flex overflow="auto">
+          <CarouselItem src={images[0]} />
+          <CarouselItem src={images[1]} />
+          <CarouselItem src={images[2]} />
+        </Flex>
+      </AnimationBox>
     </Box>
   );
 };

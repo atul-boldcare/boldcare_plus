@@ -1,4 +1,4 @@
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, Button } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Carousel from "../components/Carousel";
 import DoctorCard2 from "../components/DoctorCard2";
@@ -13,6 +13,10 @@ import PlanDescription from "../components/PlanDescription";
 import Plans from "../components/Plans";
 import Section from "../components/Section";
 import Welcome from "../components/Welcome";
+import DescriptionPage from "../components/DescriptionPage";
+import CustomButton from "../components/CustomButton";
+import WhatYouGet from "../components/WhatYouGet";
+import OverviewCard2 from "../components/OverviewCard2";
 
 const Home: NextPage = () => {
   return (
@@ -22,22 +26,9 @@ const Home: NextPage = () => {
       <PlanDescription />
       <Carousel />
       <NewPlan />
-      <Flex justifyContent="center">
-        <Box
-          borderRadius="16px"
-          p="15px"
-          mx="20px"
-          flex={1}
-          bg="#000"
-          color="#fff"
-          _hover={{ bg: "#040404" }}
-          _active={{ bg: "#000000C2" }}
-        >
-          <Text fontSize="24px" textAlign="center">
-            Contact us for queries
-          </Text>
-        </Box>
-      </Flex>
+      <CustomButton activeColor="#000000C2">
+        Contact us for queries
+      </CustomButton>
       <IncludedProducts />
       <MeetDoctors />
       <MeetTheExperts />
@@ -46,8 +37,11 @@ const Home: NextPage = () => {
       {/* <OverviewCard /> */}
       {/* <PlanDescription /> */}
       {/* <NewPlan /> */}
-      <HowThePlanWorks />
+      {/* <HowThePlanWorks /> */}
       {/* <DoctorCard2 /> */}
+      {/* <Carousel /> */}
+      {/* <WhatYouGet /> */}
+      {/* <OverviewCard2 /> */}
     </Box>
   );
 };
