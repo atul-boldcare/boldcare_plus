@@ -21,7 +21,7 @@ import OverviewCard2 from "../components/OverviewCard2";
 const Home: NextPage = () => {
   return (
     <Box>
-      <Welcome />
+      {/* <Welcome />
       <Section />
       <PlanDescription />
       <Carousel />
@@ -31,14 +31,14 @@ const Home: NextPage = () => {
       </CustomButton>
       <IncludedProducts />
       <MeetDoctors />
-      <MeetTheExperts />
-      <OverView />
+      <MeetTheExperts /> */}
+      {/* <OverView /> */}
       {/* <DescriptionPage /> */}
       {/* <OverviewCard /> */}
       {/* <PlanDescription /> */}
       {/* <NewPlan /> */}
       {/* <HowThePlanWorks /> */}
-      {/* <DoctorCard2 /> */}
+      <DoctorCard2 />
       {/* <Carousel /> */}
       {/* <WhatYouGet /> */}
       {/* <OverviewCard2 /> */}
